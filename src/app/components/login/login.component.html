@@ -3,19 +3,38 @@
         <div class="login-header">
             <h1>Login</h1>
         </div>
-        
-        <div class="inputs">
+        <form class="inputs">
             <div class="email-input">
-                <app-textbox [label]="'Email'" [type]="'text'"></app-textbox>
+                <div class="label">
+                    <span>Email</span>
+                </div>
+                <div class="input-text">
+                    <div class="icon-input">
+                        <app-svg-icon [iconWidth]="'25px'" [path]="emailIcon"></app-svg-icon>
+                        <input class="icon" #emailInput type="text">
+                    </div>
+                </div>
             </div>
             <div class="password-input">
-                <app-textbox [label]="'Password'" [type]="'password'"></app-textbox>
+                <div class="label">
+                    <span>Password</span>
+                </div>
+                <div class="input-text">
+                    <div class="icon-input">
+                        <app-svg-icon [iconWidth]="'25px'" [path]="passwordIcon"></app-svg-icon>
+                        <input class="icon" #passwordInput type="password">
+                    </div>
+                </div>
             </div>
+        </form>
+        <button class="btn login" (click)="login(emailInput.value, passwordInput.value)">Login</button>
+        <div class="login-footer">
+            <app-svg-icon *ngFor="let icon of icons" [iconWidth]="'50px'" [path]="iconsPath + icon +'.svg'"
+                [class]="'logo-icon ' + icon + '-icon'"></app-svg-icon>
         </div>
-        <app-button [text]="'Login'"></app-button>
-        <div class="login-footer" >
-            <app-svg-icon *ngFor="let icon of icons" [iconWidth]="'50px'" [path]="'assets/icons/icons8-' + icon + '.svg'" [class]="'logo-icon ' + icon + '-icon'"></app-svg-icon>
+        <div class="links">
+            <a href="">Create account</a>
+            <a href="">Forget password?</a>
         </div>
-        <a href="">Forget password</a>
     </div>
 </div>

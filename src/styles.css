@@ -7,6 +7,44 @@
     font-family: 'Noto Sans', sans-serif;
 }
 
+input{
+    position: relative;
+    border-radius: 3px;
+    font-size: 1em;
+    padding: 5px;
+    transition: padding 0.3s;
+    width: 100%;
+}
+input.icon{
+    border: 0;
+    background-color: inherit !important;
+}
+input.normal{
+    border: 2px solid #dadada;
+}
+input:focus{
+    outline-width: 0;
+    padding: 5px 10px;
+    background-color: #f8f8f8;
+}
+
+.icon-input{
+    display: flex;
+    align-items: center;
+    border: 2px solid #dadada;
+    position: relative;
+    border-radius: 3px;
+    font-size: 1em;
+    padding: 5px;
+    transition: padding 0.3s;
+    width: 100%;
+}
+
+.input-text{
+    width: 100%;
+    position: relative;
+}
+
 .logo-icon{
     transition:box-shadow 0.3s;
     border-radius: 40px;
@@ -31,4 +69,25 @@
 .btn{
     width: 100px;
     height: 40px;
+    outline: 0;
+    border: 0;
+    font-size: 0.9em;
+    font-weight: 500;
+}
+.btn:hover{
+    cursor: pointer;
+    
+}
+
+.btn-list{
+    background-color: inherit;
+    margin-top: 40px;
+    transition: box-shadow 0.2s;
+}
+.btn-list:hover{
+    box-shadow: 0 -3px 0px 0px rgb(55, 88, 255);
+    background-color: rgb(205, 205, 205);
+}
+.btn.submit{
+    border: 3px solid #dadada;
 }

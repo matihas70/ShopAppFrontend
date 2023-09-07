@@ -1,0 +1,9 @@
+.navbar{
+    position: fixed;
+    width: 100%;
+    background-color: #ececec;
+}
+.buttons-list{
+    display: flex;
+    justify-content: center;
+}
