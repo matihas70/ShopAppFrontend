@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter, ViewChildren, QueryList} from '@angular/core';
-import { IAuth } from 'src/app/Interfaces/IAuth';
+import { IAuthService } from 'src/app/Interfaces/IAuthService';
 import { AuthService } from 'src/app/Services/AuthService';
-import { ICredentials } from 'src/app/Interfaces/ICredentials';
+import { ICredentials } from 'src/app/Models/ICredentials';
 import { Paths } from 'src/app/Consts/Paths';
 
 @Component({
@@ -20,6 +20,6 @@ export class LoginComponent {
   iconsPath:string = Paths.icons
   
   login(email:string, password:string){
-    this.auth.login({Email:email, Password:password});
+    this.auth.Login({Email:email, Password:password});
   }
 }

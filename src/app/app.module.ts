@@ -9,14 +9,17 @@ import { SvgIconComponent } from './components/svg-icon/svg-icon.component';
 import { AuthService } from './Services/AuthService';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
-import { Paths } from './Consts/Paths';
+import { ItemService } from './Services/ItemService';
+import { IAuthService } from './Interfaces/IAuthService';
+import { ItemsViewComponent } from './components/items-view/items-view.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     SvgIconComponent,
-    HomeComponent
+    HomeComponent,
+    ItemsViewComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +27,10 @@ import { Paths } from './Consts/Paths';
     FormsModule,
     HttpClientModule
   ],
-  providers: [AuthService],
+  providers: [
+    AuthService,
+    ItemService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

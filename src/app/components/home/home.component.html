@@ -1,13 +1,43 @@
 <nav class="navbar">
+    <div class="info-nav">
+
+    </div>
     <ul class="buttons-list" type="none">
         <ng-container *ngFor="let text of buttonsTexts">
-            <li>
+            <li class="list-btn" (mouseenter)="showCategories(text)" (mouseleave)="hideCategories()">
                 <button class="btn btn-list">{{text}}</button>
+
+
+                <ng-container #categoriesMenu *ngIf="hoveredButton == text">
+                    <div class="categories-placeholder">
+                        <ul type="none">
+                            <li *ngFor="let category of categories" class="category" (click)="onClickCategory(category.id)">
+                                <span>{{category.name}}</span>
+                                <!-- <ng-container *ngTemplateOutlet="categoriesMenu" context:{list: category.SubCategories}></ng-container> -->
+                            </li>
+                        </ul>
+                    </div>
+                </ng-container>
+                <!-- <ng-template #categoriesMenu >
+                    <div class="categories-placeholder">
+                        <ul type="none">
+                            <li *ngFor="let category of categories" class="category">
+                                {{category.name}} -->
+                                <!-- <ng-container *ngTemplateOutlet="categoriesMenu" context:{list: category.SubCategories}></ng-container> -->
+                            <!-- </li>
+                        </ul>
+                    </div>
+                </ng-template> -->
+
+                <!-- <ng-container *ngTemplateOutlet="categoriesMenu" *ngIf="hoveredButton == text"></ng-container> -->
             </li>
         </ng-container>
     </ul>
-    <div class="user">
-        
+    <div class="user-nav">
+        <ng-container *ngFor="let iconPath of iconPaths">
+            <button class="btn btn-list user-btn">
+                <app-svg-icon iconWidth="40px" [path]="iconPath"></app-svg-icon>
+            </button>
+        </ng-container>
     </div>
-    
 </nav>
