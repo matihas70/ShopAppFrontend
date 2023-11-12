@@ -5,6 +5,9 @@ import { HttpClient, HttpHeaders, HttpParams, HttpResponse } from "@angular/comm
 import { Urls } from "../Consts/Urls";
 import { Injectable } from "@angular/core";
 import { Observable, ObservedValueOf } from "rxjs";
+import { GenderEnum } from "../Enums/GendersEnum";
+import { CatTypeEnum } from "../Enums/CatTypeEnum";
+import { QueryParams } from "../Consts/QueryParams";
 
 @Injectable({providedIn: "root"})
 export class ItemService {
@@ -23,23 +26,43 @@ export class ItemService {
 
         //return categories;
     }
-    public GetItems(categories: (string|number)[]): Observable<HttpResponse<any>>{
+    public GetItems(gender?: GenderEnum, categories?: (string|number)[], catType?: CatTypeEnum): Observable<HttpResponse<any>>{
         
 
-        const params = new HttpParams();
-        params.set("categoriesId", categories[0])
-        // for(let category of categories){
-        //     params.append("categoriesId", category)
-        // }
+        let params = new HttpParams();
+
+        if(categories)
+        for(let category of categories){
+            params = params.append(QueryParams.categories, category)
+        }
+
+        if(gender)
+        params = params.append(QueryParams.gender, gender)
         const options = {
             observe: "response",
             responseType: "json",
             params: params
         }
-        return this.client.get(Urls.items, {
+        let url = Urls.items
+        if(catType){
+            url = url + `/${catType}`
+        }
+
+        return this.client.get(url, {
             observe: "response",
             responseType: "json",
             params: params
         })
+    }
+    private getTypeParam(catTypeEnum: CatTypeEnum): string{
+        switch(catTypeEnum){
+            case CatTypeEnum.New:
+                return QueryParams.new
+            case CatTypeEnum.Sales:
+                return QueryParams.sales
+            case CatTypeEnum.Special:
+                return QueryParams.special
+        }
+        return ""
     }
 }

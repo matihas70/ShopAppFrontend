@@ -3,33 +3,34 @@
 
     </div>
     <ul class="buttons-list" type="none">
-        <ng-container *ngFor="let text of buttonsTexts">
-            <li class="list-btn" (mouseenter)="showCategories(text)" (mouseleave)="hideCategories()">
-                <button class="btn btn-list">{{text}}</button>
+        <ng-container *ngFor="let type of buttonsTypes">
+            <li class="list-btn" (mouseenter)="showCategories(type.text)" (mouseleave)="hideCategories()">
 
-
-                <ng-container #categoriesMenu *ngIf="hoveredButton == text">
-                    <div class="categories-placeholder">
+                <ng-container #categoriesMenu *ngIf="type.isGender">
+                    <button class="btn btn-list" [routerLink]="['/Items']" [queryParams]="{gender: type.catTypeEnum}">{{type.text}}</button>
+                    <div class="categories-placeholder" *ngIf="hoveredButton == type.text">
                         <ul type="none">
-                            <li *ngFor="let category of categories" class="category" (click)="onClickCategory(category.id)">
+                            <li *ngFor="let category of categories" class="category" [routerLink]="['/Items']"
+                                [queryParams]="{gender: type.catTypeEnum, categoriesId: category.id}">
                                 <span>{{category.name}}</span>
                                 <!-- <ng-container *ngTemplateOutlet="categoriesMenu" context:{list: category.SubCategories}></ng-container> -->
                             </li>
                         </ul>
                     </div>
                 </ng-container>
-                <!-- <ng-template #categoriesMenu >
-                    <div class="categories-placeholder">
+
+                <ng-container #categoriesMenu *ngIf="!type.isGender">
+                    <button class="btn btn-list" [routerLink]="['/Items', type.text]">{{type.text}}</button>
+                    <div class="categories-placeholder" *ngIf="hoveredButton == type.text">
                         <ul type="none">
-                            <li *ngFor="let category of categories" class="category">
-                                {{category.name}} -->
-                                <!-- <ng-container *ngTemplateOutlet="categoriesMenu" context:{list: category.SubCategories}></ng-container> -->
-                            <!-- </li>
+                            <li *ngFor="let gender of genders" class="category" [routerLink]="['/Items', getCatTypeString(type.catTypeEnum)]"
+                                [queryParams]="{gender: gender.enum}">
+                                <span>{{gender.text}}</span>
+                            </li>
                         </ul>
                     </div>
-                </ng-template> -->
+                </ng-container>
 
-                <!-- <ng-container *ngTemplateOutlet="categoriesMenu" *ngIf="hoveredButton == text"></ng-container> -->
             </li>
         </ng-container>
     </ul>

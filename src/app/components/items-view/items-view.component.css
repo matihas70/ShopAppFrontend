@@ -1,0 +1,42 @@
+.container{
+    width: 100vw;
+    height: 100vh;
+}
+.filters{
+    width: 30%;
+    height: 100%;
+    background-color: antiquewhite;
+}
+
+.categories-treeview ul{
+    overflow: hidden;
+}
+.categories-treeview div{
+    display: grid;
+    grid-template-rows: 1fr;
+    transition: grid-template-rows 1s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+    margin-left: 15px;
+    overflow: hidden;
+}
+.categories-treeview li{
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+
+}
+.categories-treeview li img{
+    margin-left: 5px;
+}
+.categories-treeview li:hover{
+    cursor: pointer;
+}
+.categories-treeview div.not-expand{
+    grid-template-rows: 0fr;
+}
+.categories-treeview img{
+    transition: transform .1s;
+}
+.categories-treeview img.expand{
+    transform: rotate(-90deg);
+}

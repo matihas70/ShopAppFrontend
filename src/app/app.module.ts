@@ -12,6 +12,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ItemService } from './Services/ItemService';
 import { IAuthService } from './Interfaces/IAuthService';
 import { ItemsViewComponent } from './components/items-view/items-view.component';
+import { TreeviewComponent } from './components/treeview/treeview.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ItemsViewComponent } from './components/items-view/items-view.component
     LoginComponent,
     SvgIconComponent,
     HomeComponent,
-    ItemsViewComponent
+    ItemsViewComponent,
+    TreeviewComponent
   ],
   imports: [
     BrowserModule,
