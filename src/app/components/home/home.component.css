@@ -1,7 +1,7 @@
 .navbar{
     position: fixed;
     width: 100%;
-    background-color: #ececec;
+    background-color: var(--light-gray);
 
     display: flex;
     flex-direction: row;
@@ -21,7 +21,7 @@
     transition: box-shadow 0.2s;
 }
 .btn-list:hover{
-    box-shadow: 0 -3px 0px 0px rgb(55, 88, 255);
+    box-shadow: 0 -3px 0px 0px var(--dark-blue);
     background-color: rgb(205, 205, 205);
 }
 .info-nav{

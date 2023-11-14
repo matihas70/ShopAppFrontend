@@ -5,7 +5,7 @@
 .filters{
     width: 30%;
     height: 100%;
-    background-color: antiquewhite;
+    background-color: var(--light-gray);
 }
 
 .categories-treeview ul{
@@ -35,8 +35,12 @@
     grid-template-rows: 0fr;
 }
 .categories-treeview img{
-    transition: transform .1s;
+    transition: transform .08s;
 }
 .categories-treeview img.expand{
     transform: rotate(-90deg);
+}
+.categories-treeview span.chosen{
+    color: var(--orange);
+    text-decoration: underline;
 }
