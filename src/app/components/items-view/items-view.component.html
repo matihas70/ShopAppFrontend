@@ -16,8 +16,8 @@
                 <div [ngClass]="class">
                     <ul type="none" *ngIf="categories">
                         <ng-container *ngFor="let category of categories">
-                            <li (click)="choseCategory($event, category.id)">
-                                <span [class.chosen]="checkCategory(category.id)">{{category.name}}</span>
+                            <li (click)="choseCategory($event, category)">
+                                <span [class.chosen]="checkCategory(category)">{{category.name}}</span>
                                 <img *ngIf="category.subCategories" class="not-expand" src="{{arrowPath}}" width="15px" alt="" (click)="expand($event)">
                             </li>
                             <ng-container

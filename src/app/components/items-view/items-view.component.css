@@ -40,7 +40,12 @@
 .categories-treeview img.expand{
     transform: rotate(-90deg);
 }
+.categories-treeview span{
+    transition: color .1s;
+}
 .categories-treeview span.chosen{
     color: var(--orange);
+}
+.categories-treeview span:hover{
     text-decoration: underline;
 }
